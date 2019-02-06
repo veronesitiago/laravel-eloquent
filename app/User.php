@@ -27,4 +27,19 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Retorna as avaliações relacionadas com o usuario
+     *
+     * @return void
+     */
+    public function ratings()
+    {
+        /**
+         * Colunas
+         * ratingable_id
+         * ratingable_type
+         */
+        return $this->morphMany('\App\Rating', 'ratingable');
+    }
 }

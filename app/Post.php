@@ -43,4 +43,19 @@ class Post extends Model
                     ->withTimestamps();
     }
 
+    /**
+     * Retorna as avaliações relacionadas com o post
+     *
+     * @return void
+     */
+    public function ratings()
+    {
+        /**
+         * Colunas
+         * ratingable_id
+         * ratingable_type
+         */
+        return $this->morphMany('\App\Rating', 'ratingable');
+    }
+
 }
