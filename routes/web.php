@@ -15,6 +15,7 @@ Route::get('/post/{post}', 'Site\PostController@show')->name('posts.public.show'
 Route::get('/', 'Site\PostController@index')->name("home");
 
 Route::post('comments/{post}', 'Site\CommentController@store')->name('comments.store');
+Route::post('ratings/{post}', 'Site\RatingController@store')->name('ratings.store');
 
 Route::group(['prefix' => 'admin'], function () {
     Route::resource('posts', 'Admin\PostController');
