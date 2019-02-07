@@ -42,6 +42,7 @@ class Post extends Model
         'created' => PostCreated::class // ::class passa o caminho completo da classe
     ];
 
+    protected $appends = ['summary_content'];
     /**
      * Mapeia o relacionamento com o model details
      *
@@ -142,8 +143,9 @@ class Post extends Model
     // {
     //     return mb_strimwidth($value, 0, 30, "...");
     // }
-    public function getSumaryContentAttribute($value) 
+    public function getSummaryContentAttribute($value) 
     {
+        // para que o atributo criado summary_content seja retornado na serialização basta utilizar append('summary_content')
         return mb_strimwidth($this->content, 0, 30, "...");
     }
 }
