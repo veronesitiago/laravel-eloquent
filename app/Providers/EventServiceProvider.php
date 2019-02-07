@@ -18,6 +18,10 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        'App\Events\PostCreated' => [ // Caminho do Evento
+            'App\Listeners\PublishOnFacebook',
+            'App\Listeners\PublishOnTwitter',
+        ]
     ];
 
     /**

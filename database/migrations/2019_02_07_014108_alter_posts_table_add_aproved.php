@@ -14,7 +14,7 @@ class AlterPostsTableAddAproved extends Migration
     public function up()
     {
         Schema::table('posts', function (Blueprint $table) {
-            $table->integer('approved')->after('content');
+            $table->integer('approved')->after('content')->default(0);
         });
     }
 
