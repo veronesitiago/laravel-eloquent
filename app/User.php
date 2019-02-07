@@ -10,6 +10,9 @@ class User extends Authenticatable
 {
     use Notifiable;
 
+    // Quando quiser usar mais de um db, tem que especificar na model
+    // Adicionar no database.php e configurar o parametros no .env
+    // protected $connection = 'sql_server';
     /**
      * The attributes that are mass assignable.
      *
