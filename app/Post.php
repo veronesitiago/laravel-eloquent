@@ -34,6 +34,10 @@ class Post extends Model
 
     protected $date = ['deleted_at'];
 
+    protected $casts = [
+        'approved' => 'boolean'
+    ];
+
     protected $dispatchesEvents = [
         'created' => PostCreated::class // ::class passa o caminho completo da classe
     ];
