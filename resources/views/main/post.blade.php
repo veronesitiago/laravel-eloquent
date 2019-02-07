@@ -4,7 +4,8 @@
       {{ $post->title }}
     </h2>
     <h3 class="post-subtitle">
-        {{ $post->content }}
+        {{ $post->summary_content }} 
+        <!-- o metodo é getSumaryContentAttribute onde tem letra upper substitui por lower e concatena _ -->
     </h3>
   </a>
   <p class="post-meta">
