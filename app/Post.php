@@ -89,4 +89,16 @@ class Post extends Model
     {
         return $query->where('approved', $approved);
     }
+
+    /**
+     * Filtra posts com categorias realcionadas
+     *
+     * @param [type] $query
+     * @return void
+     */
+    public function scopeHasCategories($query)
+    {
+        // categories é o nome do relacionamento entre a model post e categoria
+        return $query->whereHas('categories');
+    }
 }
