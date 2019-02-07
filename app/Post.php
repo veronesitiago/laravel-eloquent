@@ -4,9 +4,26 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Builder;
 
 class Post extends Model
 {
+
+    /**
+     * Configura itens do model
+     * Sobrescrever o metodo boot da classe pai
+     *  Criar um escopo global que ira adicionar o orderby em todo consulta deste model
+     * @return void
+     */
+    protected static function boot()
+    {
+        parent::boot(); // Executa o metodo da classe pai
+
+        static::addGlobalScope('orderByCreatedAt', function (Builder $builder) {
+            $builder->orderBy('created_at', 'desc');
+        });
+    }
+
     use SoftDeletes;
 
     protected $guarded = ['id', 'created_at', 'updated_at'];
