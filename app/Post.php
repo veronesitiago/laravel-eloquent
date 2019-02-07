@@ -127,4 +127,15 @@ class Post extends Model
         // categories é o nome do relacionamento entre a model post e categoria
         return $query->whereHas('categories');
     }
+
+    /**
+     * Limita a quantidade de caracteres
+     *
+     * @param [type] $value
+     * @return void
+     */
+    public function getContentAttribute($value) 
+    {
+        return mb_strimwidth($value, 0, 30, "...");
+    }
 }
