@@ -78,4 +78,15 @@ class Post extends Model
         return $query->where('approved', 1);
     }
 
+    /**
+     * Verifica o post com base no parametro dinamico
+     *
+     * @param [type] $query
+     * @param [type] $approved
+     * @return void
+     */
+    public function scopeApproved($query, $approved)
+    {
+        return $query->where('approved', $approved);
+    }
 }
