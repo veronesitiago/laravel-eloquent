@@ -40,7 +40,11 @@ class Post extends Model
     public function categories()
     {
         return $this->belongsToMany('App\Category', 'category_post', 'post_id', 'category_id')
-                    ->withTimestamps();
+        ->using('App\CategoryPost')
+        ->withTimestamps();
+                    // ->as('relacao')  // alias para utilizar o relacionamento, ->pivolt
+                    // ->wherePivolt('active', 1); // Para filtrar o relacionamento, retornar somente quando active == 1
+                    // ->withPivolt('username','active'); // acrescentar novas colunas a tab de relacionamento
     }
 
     /**
