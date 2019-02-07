@@ -7,6 +7,21 @@ use Illuminate\Database\Eloquent\Model;
 class Comment extends Model
 {
   protected $fillable = ['title', 'content'];
+  
+  /**
+   * Na serialização não irá aparecer ->toJson ou -> toArray
+   * a não ser que utilize makeVisible('title')->toArray() / toJson
+   *
+   * @var array
+   */
+  // protected $hiden = ['title']; // Não utilizar em conjunto com $visible
+  
+  /**
+   * Define os campos que serão visiveis na serialização first toArray toJson
+   * makeHidden('title') oculta mesmo declarado no $visible
+   * @var array
+   */
+  protected $visible = ['title', 'content'];
 
   /**
    * Mapeia o relacionamento com o model de posts
