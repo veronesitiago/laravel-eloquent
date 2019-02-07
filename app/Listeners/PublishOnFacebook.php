@@ -6,8 +6,10 @@ use App\Events\PostCreated;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
+
 class PublishOnFacebook
 {
+    public $post;
     /**
      * Create the event listener.
      *
@@ -15,7 +17,7 @@ class PublishOnFacebook
      */
     public function __construct()
     {
-        //
+        // 
     }
 
     /**
@@ -26,6 +28,6 @@ class PublishOnFacebook
      */
     public function handle(PostCreated $event)
     {
-        \Log::debug('Publicado no Facebook');
+        \Log::debug('O Post ' .$event->post->id. ' foi Publicado no Facebook');
     }
 }
