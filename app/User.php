@@ -45,4 +45,9 @@ class User extends Authenticatable
          */
         return $this->morphMany('\App\Rating', 'ratingable');
     }
+
+    public function testeWhereDinamico()
+    {
+        return $this->whereNameOrEmail('Fulano Silva', 'beltrano@gmail.com')->get();
+    }
 }
